@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+  namespace: test
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world-c
+        image: registry.ng.bluemix.net/<namespace>/hello-world:1
+      imagePullSecrets:
+      - name: usertestsecret
